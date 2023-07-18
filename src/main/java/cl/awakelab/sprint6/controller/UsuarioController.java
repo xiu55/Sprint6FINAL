@@ -35,7 +35,7 @@ public class UsuarioController {
           //("yyyy-MM-dd HH:mm:ss");
         usuario.setFechaCreacion(LocalDateTime.now());
         objUsuarioService.crearUsuario(usuario);
-        return "listarUsuarios";
+        return "redirect:/usuario";
     }
 
 
@@ -43,7 +43,7 @@ public class UsuarioController {
     public String buscarUsuarioPorId(@PathVariable int idUsuario, Model model) {
         Usuario usuario = objUsuarioService.buscarUsuarioPorId(idUsuario);
         model.addAttribute("usuario",usuario);
-        return "listarUsuarios";
+        return "redirect:/usuario"; // en caso de volver a "listarusuario"
     }
 
 
@@ -58,12 +58,12 @@ public class UsuarioController {
 
         usuario.setFechaCreacion(LocalDateTime.now());
         objUsuarioService.actualizarUsuario(idUsuario,usuario);
-        return "listarUsuarios";
+        return "redirect:/usuario";
     }
 
     @PostMapping("/eliminar/{idUsuario}")
     public String eliminarUsuarioPorId(@PathVariable int idUsuario) {
         objUsuarioService.eliminarUsuarioPorId(idUsuario);
-        return "listarUsuarios";
+        return "redirect:/usuario";
     }
 }

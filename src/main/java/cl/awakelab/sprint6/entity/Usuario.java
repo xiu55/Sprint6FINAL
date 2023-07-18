@@ -26,7 +26,7 @@ public class Usuario {
     private String apellido2;
 
     //relacion de perfil usuario-perfil
-    @ManyToOne(optional = false, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(optional = false,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil",nullable = false)
     private Perfil perfil;
 
