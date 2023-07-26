@@ -27,12 +27,15 @@ public class Empleador {
     private String direccion;
     @Column
     private String email;
+
     //Relacion usuario
     //@Column (name = "id_usuario")
-    @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    //@ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER) //Quizas deba cambiar a  @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    //TODO: El @ManytoOne que esta arriba es el original, probe el que esta aca pero parece no funcionar REVISAR!!
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario",nullable = false) //nombre hace refeceneria a la tabla que es FK
-    //private int idUsuario;
     private Usuario usuario;
+    //private int idUsuario;
 
     @Column
     private long telefono;

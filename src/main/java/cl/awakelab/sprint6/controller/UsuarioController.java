@@ -55,7 +55,6 @@ public class UsuarioController {
 
     @PostMapping("/actualizar/{idUsuario}")
     public String actualizarUsuario(@ModelAttribute Usuario usuario, @PathVariable int idUsuario) {
-
         usuario.setFechaCreacion(LocalDateTime.now());
         objUsuarioService.actualizarUsuario(idUsuario,usuario);
         return "redirect:/usuario";
@@ -66,4 +65,15 @@ public class UsuarioController {
         objUsuarioService.eliminarUsuarioPorId(idUsuario);
         return "redirect:/usuario";
     }
+
+    //Registrar usuario sin inicio de sesion con el form registro
+    @GetMapping("/registrarUsuario")
+    public String mostrarFormularioRegistro(Model model){
+        return "registroUsuario";
+    }
+
+
+
+
+
 }

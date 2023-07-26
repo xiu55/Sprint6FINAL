@@ -67,6 +67,7 @@ public class UsuarioImpl implements IUsuarioService {
      */
     @Override
     public void eliminarUsuarioPorId(int idUsuario) {
-        objUsuarioRepo.deleteById(idUsuario);
+
+    objUsuarioRepo.deleteById(idUsuario);
     }
 }
